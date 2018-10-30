@@ -49,7 +49,7 @@
             if (year.value == "" || budget.value == "" || disaster.value == "") div.innerHTML = "";
             else {
                 var sales = 10039.2 * Math.pow(budget.value * Math.pow(1.02, year.value - 2011), 2.07645);
-                div.innerHTML = "<h3>Estimate Number of People Exposed to Technology: " + Math.round(sales) + "<br>Estimate Number of People at Risk from Technology: " + Math.round((sales * disaster.value) / 100);
+                div.innerHTML = "<h3>Estimated Number of People Exposed to Technology: " + Math.round(sales) + "<br>Estimated Number of People at Risk from Technology: " + Math.round((sales * disaster.value) / 100);
             }
         }
         
