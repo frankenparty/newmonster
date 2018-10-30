@@ -1,2 +1,0 @@
-# newmonster
-An english project.
