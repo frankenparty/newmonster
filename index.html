@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>A New "Monster"</title>
+        <style>
+            body {
+                background: #000000;
+                color: #ffffff;
+                font-family: "Courier New", Courier, monospace;
+            }
+            a:link {
+                color: #ffffff;
+            }
+            a:visited {
+                color: #ffffff;
+            }
+            a:hover {
+                color: #ffffff;
+            }
+            a:active {
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>A New "Monster"</h1>
+        </center>
+        <p>Much like the monster that wreaked havoc across Europe in Mary Shelley's <i>Frankenstein</i>, scientific advancements have inadvertently caused harm to the world at large. Great progress comes hand in hand with potential for evil.
+        <br>This page uses data from the Samsung Galaxy Note 7 controversy of 2016. The Galaxy Note 7, along with other phones from the time were used to model phone sales to predict the scale and impact of a similar disaster based on given parameters.
+        <br>So, what would happen if technology turned against us? If what we thought was a monument of human achievement turned out to be disastrously harmful?</p>
+        Year:
+        <input type="number" name="year" min="2011" max="2030" value="2016"><br>
+        Total Budget (in billions of dollars):
+        <input type="number" name="budget" min="1" max="50" value="16"><br>
+        % Chance of Disaster:
+        <input type="number" name="disaster" min="0" max="100" value="40"><br>
+        <br><button type="button" name="submit" onclick="run()">Submit</button>
+        <br><button type="button" name="submit" onclick="reset()">Reset to Note 7</button>
+        <br><br>
+        <div id="results"></div>
+    </body>
+    <script>
+        var year = document.getElementsByName("year")[0];
+        var budget = document.getElementsByName("budget")[0];
+        var disaster = document.getElementsByName("disaster")[0];
+        var div = document.getElementById("results");
+        
+        function run() {
+            if (year.value == "" || budget.value == "" || disaster.value == "") div.innerHTML = "";
+            else {
+                var sales = 10039.2 * Math.pow(budget.value * Math.pow(1.02, year.value - 2011), 2.07645);
+                div.innerHTML = "<h3>Estimate Number of People Exposed to Technology: " + Math.round(sales) + "<br>Estimate Number of People at Risk from Technology: " + Math.round((sales * disaster.value) / 100);
+            }
+        }
+        
+        function reset() {
+            div.innerHTML = "";
+            year.value = 2016;
+            budget.value = 16;
+            disaster.value = 40;
+        }
+    </script>
+</html>
