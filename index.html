@@ -44,7 +44,7 @@
         var div = document.getElementById("results");
         
         function run() {
-            if (year.value == "" || budget.value == "" || disaster.value == "") div.innerHTML = "";
+            if (year.value == "" || budget.value == "" || disaster.value == "" || year.value < 2011 || budget.value < 1 || disaster.value < 0 || year.value > 2030 || budget.value > 50 || disaster.value > 100) div.innerHTML = "";
             else {
                 var sales = 10039.2 * Math.pow(budget.value * Math.pow(1.02, year.value - 2011), 2.07645);
                 div.innerHTML = "<h3>Estimated Number of People Exposed to Technology: " + Math.round(sales) + "<br>Estimated Number of People at Risk from Technology: " + Math.round((sales * disaster.value) / 100);
